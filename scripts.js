@@ -55,4 +55,33 @@ $(document).ready(function() {
             }).appendTo('#reviews-list');
         }
     });
+    const images = document.querySelectorAll('.hidden-images img');
+    let currentIndex = 0;
+
+    // Функция для смены изображения
+    function showImage(index, direction) {
+        const mainImage = document.querySelector('.main-image img');
+        mainImage.style.transform = 'translateX(0)'; // Сбрасываем предыдущую трансформацию
+
+        setTimeout(() => {
+            mainImage.src = images[index % images.length].src; // Бесконечная прокрутка
+            mainImage.alt = images[index % images.length].alt;
+            mainImage.style.transition = 'none'; // Отключаем анимацию на момент замены изображения
+            mainImage.offsetWidth; // Хитрость для применения новых стилей до следующей анимации
+            mainImage.style.transition = ''; // Включаем анимацию обратно
+            mainImage.classList.add(direction); // Применяем нужную анимацию
+        }, 200); // Задержка перед показом нового изображения
+    }
+
+    // Обработчик для кнопки "Назад"
+    document.querySelector('.prev-btn').addEventListener('click', () => {
+        currentIndex = (currentIndex + images.length - 1) % images.length; // Бесконечный цикл
+        showImage(currentIndex, 'slide-right');
+    });
+
+    // Обработчик для кнопки "Вперед"
+    document.querySelector('.next-btn').addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length; // Бесконечный цикл
+        showImage(currentIndex, 'slide-left');
+    });
 });
