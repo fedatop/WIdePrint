@@ -35,8 +35,23 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2>Наши работы</h2>
-            <div class="gallery">
-                <img src="images/work1.jpg" alt="Работа 1">
+            
+            <!-- Контейнер для изображений -->
+            <div class="slider-container">
+                <!-- Кнопка "Назад" -->
+                <button class="prev-btn">←</button>
+                
+                <!-- Основное изображение -->
+                <div class="main-image">
+                    <img src="images/work1.jpg" alt="Работа 1" class="active">
+                </div>
+                
+                <!-- Кнопка "Вперед" -->
+                <button class="next-btn">→</button>
+            </div>
+            
+            <!-- Скрытые изображения -->
+            <div class="hidden-images">
                 <img src="images/work2.jpg" alt="Работа 2">
                 <img src="images/work3.jpg" alt="Работа 3">
                 <img src="images/work4.jpg" alt="Работа 4">
