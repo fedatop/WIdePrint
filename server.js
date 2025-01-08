@@ -58,3 +58,29 @@ mongoose.Promise.then(() => {
 app.listen(process.env.PORT, () => {
     console.log(`Server running on port ${process.env.PORT}`)
 })
+async function submitReview() {
+  const name = document.getElementById('name').value;
+  const message = document.getElementById('message').value;
+  const rating = parseInt(document.getElementById('rating').value;
+
+  const response = await fetch('/reviews', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ name, message, rating })
+  });
+
+  const result = await response.json();
+
+  if (result && result.success) {
+    console.log('Successfully submitted review');
+  } else {
+    console.warn('Failed to submit review');
+  }
+}
+
+document.getElementById('review-form').addEventListener('submit', event => {
+  event.preventDefault();
+  submitReview();
+});
