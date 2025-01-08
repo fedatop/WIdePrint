@@ -153,3 +153,59 @@ body {
     text-align: center;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
+
+.portfolio h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Стилизация контейнера */
+.slider-container {
+    position: relative;
+    width: 600px; /* Можно изменить размер под ваши потребности */
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+/* Основные стили для изображения */
+.main-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* Скрытие неактивных изображений */
+.hidden-images img {
+    display: none;
+}
+
+/* Кнопки навигации */
+.prev-btn,
+.next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.7); /* Прозрачная кнопка */
+    border: none;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* Эффекты анимации */
+.slide-left {
+    transform: translateX(-100%);
+}
+
+.slide-right {
+    transform: translateX(100%);
+}
